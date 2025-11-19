@@ -1,0 +1,33 @@
+public class Pertemuan191125 {
+
+    public static void main(String[] args) {
+        int [][] matriks_A = {{1,2,3},{4,5,6},{7,8,9}};
+        int [][] matriks_B = {{1,1,1},{2,2,2},{3,3,3}};
+        int [][] matriks_hasil = new int [3][3];
+        perkalian_matriks(matriks_A,matriks_B,matriks_hasil);
+    }
+    
+    public static void perkalian_matriks (int [][] A, int [][] B, int [][] C){
+        int barismatriks = A.length;
+        int kolommatriks = A[0].length;
+        for (int i = 0; i < barismatriks; i++){
+            for (int j = 0; j < kolommatriks; j++){
+                for (int k = 0; k < kolommatriks; k++){
+                    C [i][j] += A[i][k]*B[k][j];
+                }
+            }
+        }
+        print (C);
+    }
+
+public static void print (int [][] A){
+    int barismatriks = A.length;
+        int kolommatriks = A[0].length;
+        for (int i = 0; i < barismatriks; i++){
+            for (int j = 0; j < kolommatriks; j++){
+                System.out.print(A[i][j]+ " ");
+            }
+            System.out.println();
+        }
+}
+}
