@@ -1,0 +1,45 @@
+import java.util.Scanner;
+public class kupon {
+    
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("Masukkan kode kupon: ");
+        int kupon = input.nextInt();
+        
+        int digit = String.valueOf(kupon).length();
+        
+        if (digit != 6 ){
+            System.out.println("Must be 6 digit");
+        }
+        
+        int jumlahAwal = 0, jumlahAkhir = 0;
+        int temp = kupon;
+        
+        for (int i = 0; i < 3; i++){
+            int angka = temp % 10;
+            jumlahAkhir += angka;
+            temp /= 10;
+        }
+        
+        System.out.println("jumlah akhir : " + jumlahAkhir);
+        
+        temp = kupon;
+        temp /= 1000;
+        
+        for (int i = 0; i < 3; i++){
+            int angka = temp % 10;
+            jumlahAwal += angka;
+            temp /= 10;
+        }
+        
+        System.out.println("jumlah awal : " + jumlahAwal);
+        
+        if (jumlahAwal == jumlahAkhir){
+            System.out.println("Congrats");
+        } else {
+            System.out.println("Try again!");
+        }
+    }
+    
+}
